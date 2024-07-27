@@ -1,0 +1,54 @@
+20:20:58.590 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 31392 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 20:20:58.593 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 20:20:58.594 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 20:21:00.717 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 2.523 seconds (process running for 410.261)
+ 20:21:58.867 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 30540 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 20:21:58.881 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 20:21:58.884 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 20:22:05.852 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 7.705 seconds (process running for 9.579)
+ 20:25:44.612 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 30540 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 20:25:44.615 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 20:25:44.616 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 20:25:47.127 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 2.904 seconds (process running for 230.853)
+ 20:25:47.131 [restartedMain] INFO  com.backend_main.BackendMainApplication-
+ 20:25:56.525 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 30540 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 20:25:56.527 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 20:25:56.528 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 20:25:58.791 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 2.65 seconds (process running for 242.518)
+ 20:25:58.794 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started Main Backend Application
+ 21:47:37.091 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 30540 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 21:47:37.093 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 21:47:37.093 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 21:47:38.806 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 2.016 seconds (process running for 5142.532)
+ 21:47:42.898 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 30540 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 21:47:42.899 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 21:47:42.899 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 21:47:44.342 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 1.651 seconds (process running for 5148.068)
+ 21:47:44.343 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started Main Backend Application
+ 13:11:09.394 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 12248 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 13:11:09.409 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 13:11:09.412 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 13:11:16.236 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 7.646 seconds (process running for 9.427)
+ 13:11:16.241 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started Main Backend Application
+ 13:18:24.587 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 6820 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 13:18:24.600 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 13:18:24.603 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 13:18:30.108 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 6.494 seconds (process running for 8.571)
+ 13:18:30.113 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started Main Backend Application
+ 17:08:58.598 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 17224 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 17:08:58.617 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 17:08:58.620 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 17:10:02.234 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 2032 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 17:10:02.250 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 17:10:02.254 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 17:10:12.121 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 10.932 seconds (process running for 13.606)
+ 17:10:12.129 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started Main Backend Application
+ 17:11:05.445 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 2032 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 17:11:05.448 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 17:11:05.449 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 17:11:07.915 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started BackendMainApplication in 2.931 seconds (process running for 69.399)
+ 17:11:07.920 [restartedMain] INFO  com.backend_main.BackendMainApplication-Started Main Backend Application
+ 17:15:24.717 [restartedMain] INFO  com.backend_main.BackendMainApplication-Starting BackendMainApplication using Java 17.0.5 with PID 27272 (C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main\target\classes started by hemanth.pitchika in C:\Users\hemanth.pitchika\Desktop\Practice\Backend\backend_main)
+ 17:15:24.733 [restartedMain] DEBUG com.backend_main.BackendMainApplication-Running with Spring Boot v3.2.2, Spring v6.1.3
+ 17:15:24.737 [restartedMain] INFO  com.backend_main.BackendMainApplication-No active profile set, falling back to 1 default profile: "default"
+ 
