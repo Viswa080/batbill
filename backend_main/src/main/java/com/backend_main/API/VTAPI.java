@@ -29,23 +29,22 @@ import com.backend_main.Service.VTService;
 
 import jakarta.servlet.http.HttpServletResponse;
 
-
 @RestController
 @RequestMapping(value = "/Bat")
 @Validated
-@CrossOrigin(origins = {"http://localhost:4200","http://localhost:58678"})
+@CrossOrigin(origins = { "http://localhost:4200", "http://localhost:58678" })
 public class VTAPI {
 	@Autowired
 	private Environment env;
-	
+
 	@Autowired
 	private VTService vts;
-	
+
 	@Autowired
 	private RestTemplate temp;
-	
+
 	Logger log = LogManager.getLogger(VTAPI.class);
-	
+
 	// and /* */ to comments
 	@PostMapping(value = "/login")
 	public ResponseEntity<login> login(@RequestBody login cred) throws Exception { // to check the login credentials
@@ -71,16 +70,17 @@ public class VTAPI {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, env.getProperty(e.getMessage()), e);
 		}
 	}
+
 	// for making a bill and mark products as sold
 	@PostMapping(value = "/makebilling/{name}/{discount}")
 	public ResponseEntity<Integer> billing(@PathVariable String name, @PathVariable String discount,
-			@RequestBody List<Billing> prods) 
-			throws Exception {
-		//try {
+			@RequestBody List<Billing> prods) throws Exception {
+		// try {
 		System.out.println("Triggered in API " + name);
 		ResponseEntity<Integer> response = null;
 		BillEntity responcefromservice = vts.BillingtoDAO(name, discount, prods);
-		BillEntity billid=temp.postForObject("http://BILLMS"+"/Bill/addbill", responcefromservice, BillEntity.class);
+		BillEntity billid = temp.postForObject("http://BILLMS" + "/Bill/addbill", responcefromservice,
+				BillEntity.class);
 		response = new ResponseEntity<Integer>(billid.getBillpaidamount(), HttpStatus.OK);
 		System.out.println("Done in API " + name);
 		return response;
@@ -88,20 +88,22 @@ public class VTAPI {
 //		catch(Exception e){ throw new ResponseStatusException(HttpStatus.BAD_REQUEST,env.getProperty(e.getMessage() ),e); 
 //		}
 	}
+
 	@PostMapping(value = "/updateproduct")
 	public ResponseEntity<Integer> updateProducts(@RequestBody Billing prod) throws Exception { // to Update product
-																										// to DB
+																								// to DB
 		try {
-			 System.out.println("Triggered in API" );
+			System.out.println("Triggered in API");
 			ResponseEntity<Integer> response = null;
 			Integer responcefromservice = vts.UpdateProduct(prod);
 			response = new ResponseEntity<Integer>(responcefromservice, HttpStatus.OK);
-			 System.out.println("Done in API");
+			System.out.println("Done in API");
 			return response;
 		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, env.getProperty(e.getMessage()), e);
 		}
 	}
+
 	@PostMapping(value = "/loadproducts")
 	public ResponseEntity<Integer> loadproducts(@RequestBody List<Billing> prods) throws Exception { // to add products
 																										// to DB
@@ -179,12 +181,12 @@ public class VTAPI {
 	}
 
 	@GetMapping(value = "/productslist/{day}/{month}/{year}") // gives the list as object
-	public ResponseEntity<List<Billing>> GetMonthlyProduct(@PathVariable String month, @PathVariable String day,@PathVariable String year)
-			throws Exception {
+	public ResponseEntity<List<Billing>> GetMonthlyProduct(@PathVariable String month, @PathVariable String day,
+			@PathVariable String year) throws Exception {
 		try {
 			System.out.println("Triggered in API");
 			ResponseEntity<List<Billing>> response = null;
-			List<Billing> responcefromservice = vts.GetProductexcel(day,month, year);
+			List<Billing> responcefromservice = vts.GetProductexcel(day, month, year);
 			response = new ResponseEntity<List<Billing>>(responcefromservice, HttpStatus.OK);
 			System.out.println("Done in API");
 			return response;
@@ -194,24 +196,24 @@ public class VTAPI {
 
 	}
 
-	//exceldownload
-	@GetMapping(value = "/productdetailsexcel/{day}/{month}/{year}")					
-	public void generateExcel(HttpServletResponse responce,@PathVariable String day,@PathVariable String month, @PathVariable String year)throws Exception {
+	// exceldownload
+	@GetMapping(value = "/productdetailsexcel/{day}/{month}/{year}")
+	public void generateExcel(HttpServletResponse responce, @PathVariable String day, @PathVariable String month,
+			@PathVariable String year) throws Exception {
 		try {
 			responce.setContentType("application/octet-stream");
-			String headerkey="Content-Disposition";
-			String headervalue="attachment;filename=data.xls";
+			String headerkey = "Content-Disposition";
+			String headervalue = "attachment;filename=data.xls";
 			responce.setHeader(headerkey, headervalue);
-			vts.generateExcel(responce, day,month,year);
-			
+			vts.generateExcel(responce, day, month, year);
+
 		} catch (Exception e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, env.getProperty(e.getMessage()), e); 
+			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, env.getProperty(e.getMessage()), e);
 		}
 	}
 
-	@GetMapping(value = "/microcheck")		
-	public ResponseEntity<String> microservice()
-			throws Exception {
+	@GetMapping(value = "/microcheck")
+	public ResponseEntity<String> microservice() throws Exception {
 		try {
 			System.out.println("Triggered in API");
 			ResponseEntity<String> response = null;
@@ -224,7 +226,8 @@ public class VTAPI {
 		}
 
 	}
-	@GetMapping(value = "/microcheck2")		
+
+	@GetMapping(value = "/microcheck2")
 	public String microserviceasstring() throws Exception {
 		try {
 			System.out.println("Triggered in API");
@@ -238,9 +241,9 @@ public class VTAPI {
 		}
 
 	}
-	@GetMapping(value = "/requestparamcheck")		
-	public ResponseEntity<String> requestparams(@RequestParam("data")String item)
-			throws Exception {
+
+	@GetMapping(value = "/requestparamcheck")
+	public ResponseEntity<String> requestparams(@RequestParam("data") String item) throws Exception {
 		try {
 			System.out.println(item);
 			ResponseEntity<String> response;
@@ -253,9 +256,9 @@ public class VTAPI {
 		}
 
 	}
-	@GetMapping(value = "/getall")		
-	public ResponseEntity<List<BillingEntity>> getall()
-			throws Exception {
+
+	@GetMapping(value = "/getall")
+	public ResponseEntity<List<BillingEntity>> getall() throws Exception {
 		try {
 			ResponseEntity<List<BillingEntity>> response;
 			System.out.println("Triggered in API");
@@ -268,19 +271,19 @@ public class VTAPI {
 		}
 
 	}
-	@GetMapping(value="/check")
-	public ResponseEntity<String> check() throws Exception{
+
+	@GetMapping(value = "/check")
+	public ResponseEntity<String> check() throws Exception {
 		try {
 			ResponseEntity<String> response;
 			System.out.println("Triggered the service");
-			String responsefromservice="Triggered in BatApplication MS";
+			String responsefromservice = "Triggered in BatApplication MS";
 			response = new ResponseEntity<String>(responsefromservice, HttpStatus.OK);
 			return response;
-		}
-		catch(Exception e) {
+		} catch (Exception e) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, env.getProperty(e.getMessage()), e);
 		}
-		
+
 	}
 	/*
 	 * @Scheduled(fixedRate=6000) //few more parameters are initialDelay=5000 public
@@ -288,7 +291,4 @@ public class VTAPI {
 	 * represent days or months ResponseEntity<String> response= null; //sample for
 	 * the scheduler System.out.println("Running the scheduler"); return response; }
 	 */
-	}
-	
-
-
+}

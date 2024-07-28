@@ -17,7 +17,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
 
-
 @Repository(value = "VTDAO")
 public class VTDAOIMPL implements VTDAO {
 
@@ -31,36 +30,42 @@ public class VTDAOIMPL implements VTDAO {
 		responce = em.find(loginentity.class, cred.getUserid());
 		return responce;
 	}
+
 	@Override
-	public BillEntity Billing(String name,String discount,List<Billing> prods) throws Exception {
+	public BillEntity Billing(String name, String discount, List<Billing> prods) throws Exception {
 		Integer totalbill = 0;
-		Integer markedbill=0;
+		Integer markedbill = 0;
 		int billno;
 		Integer discountpercent = 0;
-		if(discount.equals("HO")) { discountpercent = 20; }else if(discount.equals("IT")){ discountpercent = 15; 
-		}else if(discount.equals("PD")){
+		if (discount.equals("HO")) {
+			discountpercent = 20;
+		} else if (discount.equals("IT")) {
+			discountpercent = 15;
+		} else if (discount.equals("PD")) {
 			discountpercent = 10;
 		}
 		Query q1 = em.createQuery("Select Max(Billno) from BillingEntity");
 		System.out.println("getQuery executed");
-		billno= ((int)q1.getSingleResult())+1;
+		billno = ((int) q1.getSingleResult()) + 1;
 		for (Billing prod : prods) {
-			
-			
+
 			Query q = em.createQuery("UPDATE BillingEntity p SET p.Productsoldcost=?1,p.Customername=?2,"
 					+ "p.Billno=?3,p.Productsolddate=?4 where p.Productid=?5");
 			System.out.println("Query executed");
 			System.out.println(discountpercent);
 			System.out.println(prod.getProductmarkedcost());
-			System.out.println(prod.getProductmarkedcost()-((double)(discountpercent*prod.getProductmarkedcost()/100)));
-			q.setParameter(1, (int)(prod.getProductmarkedcost()-((double)(discountpercent*prod.getProductmarkedcost()/100))));
+			System.out.println(
+					prod.getProductmarkedcost() - ((double) (discountpercent * prod.getProductmarkedcost() / 100)));
+			q.setParameter(1, (int) (prod.getProductmarkedcost()
+					- ((double) (discountpercent * prod.getProductmarkedcost() / 100))));
 			q.setParameter(2, name);
 			q.setParameter(3, billno);
 			q.setParameter(4, LocalDate.now());
 			q.setParameter(5, prod.getProductid());
 			q.executeUpdate();
-			markedbill+=(int)(prod.getProductmarkedcost());
-			totalbill += ((int)(prod.getProductmarkedcost()-((double)(discountpercent*prod.getProductmarkedcost()/100))));
+			markedbill += (int) (prod.getProductmarkedcost());
+			totalbill += ((int) (prod.getProductmarkedcost()
+					- ((double) (discountpercent * prod.getProductmarkedcost() / 100))));
 		}
 		BillEntity bill = new BillEntity();
 		bill.setBillno(billno);
@@ -147,12 +152,13 @@ public class VTDAOIMPL implements VTDAO {
 			throw new Exception("DAO.NO_DATA_FOUND");
 		}
 	}
+
 	@Override
 	public Integer UpdateProduct(Billing prod) throws Exception {
 		try {
 			BillingEntity prodentity = new BillingEntity();
 			prodentity = new BillingEntity();
-			prodentity= em.find(BillingEntity.class, prod.getProductid());
+			prodentity = em.find(BillingEntity.class, prod.getProductid());
 			// prodentity.setProductid(prod.getProductid());
 			prodentity.setProductname(prod.getProductname());
 			prodentity.setProducttype(prod.getProducttype());
@@ -167,33 +173,33 @@ public class VTDAOIMPL implements VTDAO {
 			throw new Exception("SERVICE.FACING_ISSUE");
 		}
 	}
+
 	@Override
-	public List<Billing> GetExcelProducts(String date,String month, String year) throws Exception 
-	{
+	public List<Billing> GetExcelProducts(String date, String month, String year) throws Exception {
 		try {
 			System.out.println("Triggered in DAO");
-			System.out.println(date+"-"+month+"-"+year);
-			Query q =null;
-			if(date.equals("00") && month.equals("00") ) { 
+			System.out.println(date + "-" + month + "-" + year);
+			Query q = null;
+			if (date.equals("00") && month.equals("00")) {
 				q = em.createQuery("Select a from BillingEntity a where Year(a.Productsolddate) = :year");
-				//System.out.println("Triggered first");
+				// System.out.println("Triggered first");
 				q.setParameter("year", year);
-				}
-			else if(date.equals("00") && !month.equals("00")){
-				q = em.createQuery("Select a from BillingEntity a where Year(a.Productsolddate) = :year and Month(a.Productsolddate)= :month");
-				//System.out.println("Triggered second");
+			} else if (date.equals("00") && !month.equals("00")) {
+				q = em.createQuery(
+						"Select a from BillingEntity a where Year(a.Productsolddate) = :year and Month(a.Productsolddate)= :month");
+				// System.out.println("Triggered second");
 				q.setParameter("year", year);
-				q.setParameter("month",month);
-				}
-			else {
-				q = em.createQuery("Select a from BillingEntity a where Year(a.Productsolddate) = :year and Month(a.Productsolddate)= :month and Day(a.Productsolddate)= :day");
-				//System.out.println("Triggered third");
+				q.setParameter("month", month);
+			} else {
+				q = em.createQuery(
+						"Select a from BillingEntity a where Year(a.Productsolddate) = :year and Month(a.Productsolddate)= :month and Day(a.Productsolddate)= :day");
+				// System.out.println("Triggered third");
 				q.setParameter("day", date);
 				q.setParameter("year", year);
-				q.setParameter("month",month);
+				q.setParameter("month", month);
 			}
-			
-			//	q.setParameter("datePattern", "2024-01-15");
+
+			// q.setParameter("datePattern", "2024-01-15");
 			List<BillingEntity> DBresponce = new ArrayList<BillingEntity>();
 			DBresponce = q.getResultList();
 			System.out.println(DBresponce);
@@ -228,8 +234,7 @@ public class VTDAOIMPL implements VTDAO {
 			prodentity.setColor(prod.getColor());
 			prodentity.setBillNo(prod.getBillno());
 			responce.add(prodentity);
-			
-			
+
 		}
 		return responce;
 	}
@@ -253,6 +258,5 @@ public class VTDAOIMPL implements VTDAO {
 		prodentity.setBillNo(prod.getBillno());
 		return prodentity;
 	}
-	
-	
+
 }

@@ -20,9 +20,8 @@ import com.backend_main.Model.login;
 import jakarta.servlet.ServletOutputStream;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 @Service(value = "VTService")
-@Transactional 
+@Transactional
 public class VTServiceIMPL implements VTService {
 	@Autowired
 	private VTDAO vtd;
@@ -51,7 +50,7 @@ public class VTServiceIMPL implements VTService {
 			throw new Exception("SERVICE.FACING_ISSUE");
 		}
 		System.out.println("Done in Service " + name);
-		
+
 		return responcefromDao;
 	}
 
@@ -66,6 +65,7 @@ public class VTServiceIMPL implements VTService {
 		// System.out.println("Done in service");
 		return responcefromDao;
 	}
+
 	public Integer UpdateProduct(Billing prod) throws Exception {
 		Integer responcefromDao = vtd.UpdateProduct(prod);
 		if (responcefromDao == null) {
@@ -73,7 +73,7 @@ public class VTServiceIMPL implements VTService {
 		}
 		// System.out.println("Done in service");
 		return responcefromDao;
-		
+
 	}
 
 	@Override
@@ -110,20 +110,20 @@ public class VTServiceIMPL implements VTService {
 	}
 
 	@Override
-	public List<Billing> GetProductexcel(String date,String month, String year) throws Exception {
+	public List<Billing> GetProductexcel(String date, String month, String year) throws Exception {
 		System.out.println("Triggered in service");
-		List<Billing> responcefromDao = vtd.GetExcelProducts(date,month, year);
-		//List<BillingEntity> responcefromDao = jpa.findby
+		List<Billing> responcefromDao = vtd.GetExcelProducts(date, month, year);
+		// List<BillingEntity> responcefromDao = jpa.findby
 		if (responcefromDao == null) {
 			throw new Exception("SERVICE.FACING_ISSUE");
 		}
 		System.out.println("Done in service");
 		return responcefromDao;
-		//return vtd.ProducttableEntitytoModel(responcefromDao);
+		// return vtd.ProducttableEntitytoModel(responcefromDao);
 	}
 
 	@Override
-	public void generateExcel(HttpServletResponse responce,String date, String month, String year) throws Exception {
+	public void generateExcel(HttpServletResponse responce, String date, String month, String year) throws Exception {
 		HSSFWorkbook workbook = new HSSFWorkbook();
 		HSSFSheet sheet = workbook.createSheet("Monthly Product Info");
 		HSSFRow row = sheet.createRow(0);
@@ -141,7 +141,7 @@ public class VTServiceIMPL implements VTService {
 
 		int datarowindex = 1;
 		System.out.println(month + "-" + year + "in Service class");
-		List<Billing> exceldata = GetProductexcel(date,month, year);
+		List<Billing> exceldata = GetProductexcel(date, month, year);
 
 		for (Billing sr : exceldata) {
 			System.out.print(sr.getProductid());
@@ -168,10 +168,11 @@ public class VTServiceIMPL implements VTService {
 
 		return "";
 	}
-	public List<BillingEntity> getAll(){
+
+	public List<BillingEntity> getAll() {
 		System.out.println("Triggered in Service");
 		List<BillingEntity> products = new ArrayList<BillingEntity>();
-		//jpa.findAll().forEach(products::add);
+		// jpa.findAll().forEach(products::add);
 		System.out.println("Done in Service");
 		return products;
 	}
