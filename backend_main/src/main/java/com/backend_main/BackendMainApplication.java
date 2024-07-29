@@ -15,7 +15,6 @@ public class BackendMainApplication {
 		SpringApplication.run(BackendMainApplication.class, args);
 		System.out.println("Application Started");
 		log.info("Started Main Backend Application");
-		
 	}
 
 }
