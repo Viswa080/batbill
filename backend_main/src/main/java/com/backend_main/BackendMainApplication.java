@@ -13,7 +13,7 @@ public class BackendMainApplication {
 	public static void main(String[] args) {
 		Logger log = LogManager.getLogger(BackendMainApplication.class);
 		SpringApplication.run(BackendMainApplication.class, args);
-		System.out.println("Application Started");
+		System.out.println(" Application Started ");
 		log.info("Started Main Backend Application");
 	}
 
